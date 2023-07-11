@@ -1,0 +1,79 @@
+// Parent class Shape
+abstract class Shape {
+   
+    public abstract double calculateArea();   // Abstract method calculate area
+}
+
+// child class Rectangle
+class Rectangle extends Shape {
+
+    private double length;
+    private double width;
+
+    // Call Constructor
+     public Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    
+    public double calculateArea() {
+        return length * width;
+    }
+}
+
+// child class Circle
+   class Circle extends Shape {
+    private double radius;
+
+    // call Constructor
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+   
+    public double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+}
+
+// child class Triangle
+   class Triangle extends Shape {
+    private double base;
+    private double height;
+
+    // call Constructor
+    public Triangle(double base, double height) {
+        this.base = base;
+        this.height = height;
+    }
+
+    
+    public double calculateArea() {
+        return 0.5 * base * height;
+    }
+}
+
+// To create shape Calculator class
+ class ShapeCalculator {
+                                                  // Method to print the area of a shape
+    public void printArea(Shape shape) {
+        double area = shape.calculateArea();
+        System.out.println("The area of  shape is: " + area);
+    }
+}
+
+// Main class
+public class ShapeTest {
+    public static void main(String[] args) {
+        ShapeCalculator calculator = new ShapeCalculator();
+
+        Rectangle rectangle = new Rectangle(4, 6);
+        Circle circle = new Circle(3);
+        Triangle triangle = new Triangle(5, 8);
+
+        calculator.printArea(rectangle); 
+        calculator.printArea(circle); 
+        calculator.printArea(triangle);
+    }
+}
